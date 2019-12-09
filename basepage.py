@@ -1,5 +1,7 @@
+from selenium.webdriver.common.by import By
 from settings import evidence_path
 from i18n import Message
+from baseelement import BaseElement
 
 
 class BasePage():
@@ -40,3 +42,23 @@ class BasePage():
         assert elem_text == text, (
             Message.COMPARE_TEXT_ERROR.format(text, elem_text)
         )
+
+    def get_elements(self, driver, by, log):
+        """ Method to obtain sub elements from an element. Search this element
+        using xpath.
+
+        Arguments:
+            driver {WebDriver} -- WebDriver, to use
+            by {(By, String)} -- Method to search the element
+            log {Log} -- Driver's logger
+
+        Returns:
+            [BaseElement] -- A list with BaseElement from the searched element
+        """
+        elem = driver.find_elements(*by)
+        xpath = '(%s)[{}]' % by[1]
+        elements = [
+            BaseElement(driver, (By.XPATH, xpath.format(x + 1)), log)
+            for x in range(len(elem))
+        ]
+        return elements

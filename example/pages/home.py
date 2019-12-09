@@ -11,8 +11,10 @@ class Home(BasePage):
         self.__menu = BaseElement(driver, HomeLocator.menu, log)
         self.__cart = BaseElement(driver, HomeLocator.cart, log)
         self.__product_sort = BaseSelect(driver, HomeLocator.product_sort, log)
-        self.__products = self.__get_products(driver, log)
-        self.__products_add_cart = self.__product_add_cart(driver, log)
+        self.__products = self.get_elements(
+            driver, HomeLocator.product_list, log)
+        self.__products_add_cart = self.get_elements(
+            driver, HomeLocator.products_add_cart, log)
 
         # Menu options
         self.__all_item = BaseElement(driver, HomeLocator.all_item, log, 0)
@@ -20,15 +22,6 @@ class Home(BasePage):
         self.__logout = BaseElement(driver, HomeLocator.logout, log, 0)
         self.__reset = BaseElement(driver, HomeLocator.reset, log, 0)
         self.__close_menu = BaseElement(driver, HomeLocator.close_menu, log, 0)
-
-    def __get_products(self, driver, log):
-        products = self.__get_elements(driver, HomeLocator.product_list, log)
-        return products
-
-    def __product_add_cart(self, driver, log):
-        buttons = self.__get_elements(driver,
-                                      HomeLocator.products_add_cart, log)
-        return buttons
 
     def __get_elements(self, driver, by, log):
         element = driver.find_elements(*by)
@@ -77,3 +70,8 @@ class Home(BasePage):
     def add_cart(self, position):
         elem = self.__products_add_cart[position]
         elem.click()
+
+    def all_to_cart(self):
+        c = len(self.__products_add_cart)
+        for x in range(c):
+            self.add_cart(x)
