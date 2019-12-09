@@ -25,20 +25,20 @@ class SortTest(unittest.TestCase):
         self.home.select_sort_by_name_ascendant()
         self.done = True
 
-    # def test_sort_by_name_descendant(self):
-    #     self.log.info('Name Descendant')
-    #     self.home.select_sort_by_name_descendant()
-    #     self.done = True
+    def test_sort_by_name_descendant(self):
+        self.log.info('Name Descendant')
+        self.home.select_sort_by_name_descendant()
+        self.done = True
 
-    # def test_sort_by_price_ascendant(self):
-    #     self.log.info('Price Ascendant')
-    #     self.home.select_sort_by_price_ascendant()
-    #     self.done = True
+    def test_sort_by_price_ascendant(self):
+        self.log.info('Price Ascendant')
+        self.home.select_sort_by_price_ascendant()
+        self.done = True
 
-    # def test_sort_by_price_descendant(self):
-    #     self.log.info('Price Descendant')
-    #     self.home.select_sort_by_price_descendant()
-    #     self.done = True
+    def test_sort_by_price_descendant(self):
+        self.log.info('Price Descendant')
+        self.home.select_sort_by_price_descendant()
+        self.done = True
 
     def tearDown(self):
         if self.done:
