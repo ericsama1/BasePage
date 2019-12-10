@@ -11,7 +11,7 @@ log = DriverLog()
 log = log.create_log()
 
 
-class SortTest(unittest.TestCase):
+class CartTest(unittest.TestCase):
     def setUp(self):
         self.done = False
         browser = BaseBrowser(url, log)
