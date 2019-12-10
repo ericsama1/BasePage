@@ -14,4 +14,3 @@ evidence_path = None
 # Get the os language
 language = locale.getdefaultlocale()[0]
 language = language[:2]
-language = 'ko'
