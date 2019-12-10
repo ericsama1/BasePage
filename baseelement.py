@@ -36,11 +36,21 @@ class BaseElement():
             self.element = wait.until(exp_c.visibility_of_element_located(by))
         except TimeoutException:
             try:
-                self.elemeent = self.driver.find_element(*(by))
+                self.element = self.driver.find_element(*(by))
             except NoSuchElementException:
                 msg = Message.ELEMENT_NOT_VISIBLE.format(by)
                 self.log.error(msg)
                 fail(msg)
+
+    def wait(self, seconds=10):
+        """Method to wait the element
+
+        Keyword Arguments:
+            seconds {int} -- Seconds to wait the elemento be visible
+                             (default: {10})
+        """
+        wait = WebDriverWait(self.driver, seconds)
+        wait.until(exp_c.visibility_of_element_located(self.by))
 
     # Write
 

@@ -64,6 +64,7 @@ class Home(BasePage):
         Select the option 'all items' in the menu.
         """
         self.select_menu()
+        self.__all_item.wait(5)
         self.__all_item.click()
 
     def select_about(self):
@@ -71,6 +72,7 @@ class Home(BasePage):
         Select the option 'select about' in the menu.
         """
         self.select_menu()
+        self.__about.wait(5)
         self.__about.click()
 
     def select_logout(self):
@@ -78,6 +80,7 @@ class Home(BasePage):
         Select the option 'logout' in the menu.
         """
         self.select_menu()
+        self.__logout.wait(5)
         self.__logout.click()
 
     def select_reset(self):
@@ -85,6 +88,7 @@ class Home(BasePage):
         Select the option 'reset' in the menu.
         """
         self.select_menu()
+        self.__reset.wait(5)
         self.__reset.click()
 
     def close_menu(self):
