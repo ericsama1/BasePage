@@ -8,18 +8,9 @@ class Cart(Header):
         super().__init__(driver, log)
         self.__continue = BaseElement(driver, CartLocator.continue_button, log)
         self.__checkout = BaseElement(driver, CartLocator.checkout_button, log)
-        self.__cart_items = self.get_elements(
-            driver, CartLocator.cart_items, log
-        )
-        self.__item_quantity = self.get_elements(
-            driver, CartLocator.item_quantity, log
-        )
-        self.__item_remove = self.get_elements(
-            driver, CartLocator.item_remove, log
-        )
+        self.__set_element()
 
-    def remove(self, position):
-        self.__item_remove[position].click()
+    def __set_element(self):
         self.__cart_items = self.get_elements(
             self.driver, CartLocator.cart_items, self.log
         )
@@ -29,6 +20,10 @@ class Cart(Header):
         self.__item_remove = self.get_elements(
             self.driver, CartLocator.item_remove, self.log
         )
+
+    def remove(self, position):
+        self.__item_remove[position].click()
+        self.__set_element()
 
     def select_continue(self):
         self.__continue.click()
