@@ -37,6 +37,12 @@ class MenuTest(unittest.TestCase):
         Login(self.driver, self.log)
         self.done = True
 
+    def test_close_menu(self):
+        self.log.info("Close the menu sidebar")
+        self.home.select_menu()
+        self.home.close_menu()
+        self.done = True
+
     def tearDown(self):
         if self.done:
             self.log.info('The test has finished OK')

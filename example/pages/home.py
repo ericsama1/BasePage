@@ -95,8 +95,8 @@ class Home(BasePage):
         """
         Select the button to close the menu.
         """
-        self.select_menu()
-        self.close_menu()
+        self.__close_menu.wait(5)
+        self.__close_menu.click()
 
     def add_cart(self, position):
         """Select the button add to cart on the item
