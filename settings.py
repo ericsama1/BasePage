@@ -1,5 +1,4 @@
 import locale
-import ctypes
 
 
 # URL to automatize
@@ -13,7 +12,6 @@ browser = browsers[0]
 evidence_path = None
 
 # Get the os language
-windll = ctypes.windll.kernel32
-windll.GetUserDefaultUILanguage()
-language = locale.windows_locale[windll.GetUserDefaultUILanguage()][:2]
-# language = 'es'
+language = locale.getdefaultlocale()[0]
+language = language[:2]
+language = 'ko'

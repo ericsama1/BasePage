@@ -1,65 +1,64 @@
-from googletrans import Translator
-from i18n.en.messages import (
-    BaseBrowserConstants as BrowserEN,
-    BaseElementConstants as ElementEN,
-    BasePageConstants as PageEN,
-    BaseRadioConstants as RadioEN,
-    BaseSelectConstants as SelectEN
-)
-
-translator = Translator()
-dest = 'es'
-
-
 class BaseBrowserConstants():
-    BROWSERNOTEXIST = translator.translate(
-        BrowserEN.BROWSERNOTEXIST, dest).text
-    OPENBROWSER = translator.translate(BrowserEN.OPENBROWSER, dest).text
-    SETURL = translator.translate(BrowserEN.SETURL, dest).text
-    MAXIMIZE = translator.translate(BrowserEN.MAXIMIZE, dest).text
-    NEWTAB = translator.translate(BrowserEN.NEWTAB, dest).text
-    TAB_CHANGE_ERROR = translator.translate(
-        BrowserEN.TAB_CHANGE_ERROR, dest).text
-    TAB_CHANGE = translator.translate(BrowserEN.TAB_CHANGE, dest).text
-    CLOSE_TAB = translator.translate(BrowserEN.CLOSE_TAB, dest).text
-    CLOSE_BROWSER = translator.translate(BrowserEN.CLOSE_BROWSER, dest).text
+    BROWSERNOTEXIST = (
+        "Por favor, ingresar un navegador en el archivo configuración"
+    )
+    OPENBROWSER = "Se ha abierto el navegador {}."
+    SETURL = "Se ha abierto la url: {}"
+    MAXIMIZE = "Se ha maximizado la ventana."
+    NEWTAB = "Se ha abierto una nueva ventana con la url: {}."
+    TAB_CHANGE_ERROR = "No existe una ventana en la posicion {}."
+    TAB_CHANGE = (
+        "Se modifica la ventana activa por la que se encuentra en la "
+        "posicion {}."
+    )
+    CLOSE_TAB = "Se cierra la ventana activa."
+    CLOSE_BROWSER = "Se cierra el navegador."
 
 
 class BaseElementConstants():
-    ELEMENT_NOT_VISIBLE = translator.translate(
-        ElementEN.ELEMENT_NOT_VISIBLE, dest
-    ).text
-    CLEAR_ELEMENT = translator.translate(ElementEN.CLEAR_ELEMENT, dest).text
-    WRITE_ELEMENT = translator.translate(ElementEN.WRITE_ELEMENT, dest).text
-    CLICK_ELEMENT = translator.translate(ElementEN.CLICK_ELEMENT, dest).text
-    DOUBLE_CLICK_ELEMENT = translator.translate(
-        ElementEN.DOUBLE_CLICK_ELEMENT, dest).text
-    SCROLL_ELEMENT = translator.translate(
-        ElementEN.SCROLL_ELEMENT, dest).text
-    HIGHLIGHT_ELEMENT = translator.translate(
-        ElementEN.HIGHLIGHT_ELEMENT, dest).text
-    REMOVE_HIGHLIGHT_ELEMENT = translator.translate(
-        ElementEN.REMOVE_HIGHLIGHT_ELEMENT, dest).text
+    ELEMENT_NOT_VISIBLE = "El elemento {} no es visible."
+    CLEAR_ELEMENT = "Se borra el contenido del elemento {}."
+    WRITE_ELEMENT = "Se escribe el texto '{0}' en el elemento {1}"
+    CLICK_ELEMENT = "Se hace click sobre el elemento {}."
+    DOUBLE_CLICK_ELEMENT = "Se hace doble click sobre el elemento {}."
+    SCROLL_ELEMENT = "Se desplaza hacia el elemento {}."
+    HIGHLIGHT_ELEMENT = "Se resalta el elemento {}"
+    REMOVE_HIGHLIGHT_ELEMENT = "Se quita lo resaltado al elemento {}."
 
 
 class BasePageConstants():
-    CAPTURE_IMAGE_ERROR = translator.translate(
-        PageEN.CAPTURE_IMAGE_ERROR, dest).text
-    COMPARE_TEXT_ERROR = translator.translate(
-        PageEN.COMPARE_TEXT_ERROR, dest).text
+    CAPTURE_IMAGE_ERROR = "La ruta de evidencias no está definido"
+    COMPARE_TEXT_ERROR = (
+        "El texto esperado '{0}', y el texto del elemento '{1}', "
+        "son diferentes"
+    )
 
 
 class BaseRadioConstants():
-    SELECT_OPTION = translator.translate(RadioEN.SELECT_OPTION, dest).text
-    SELECT_OPTION_ERROR = translator.translate(
-        RadioEN.SELECT_OPTION_ERROR, dest).text
+    SELECT_OPTION = (
+        "Se selecciona la opción con valor '{0}' dentro del conjunto de "
+        "radiobutton del elemento {1}"
+    )
+    SELECT_OPTION_ERROR = (
+        "El valor '{}' no se encuentra dentro de las opciones"
+    )
 
 
 class BaseSelectConstants():
-    SELECT_BY_TEXT = translator.translate(SelectEN.SELECT_BY_TEXT, dest).text
-    SELECT_BY_TEXT_ERROR = translator.translate(
-        SelectEN.SELECT_BY_TEXT_ERROR, dest).text
-    SELECT_BY_VALUE = translator.translate(SelectEN.SELECT_BY_VALUE, dest).text
-    SELECT_BY_INDEX = translator.translate(SelectEN.SELECT_BY_INDEX, dest).text
-    SELECT_BY_INDEX_ERROR = translator.translate(
-        SelectEN.SELECT_BY_INDEX_ERROR, dest).text
+    SELECT_BY_TEXT = (
+        "Se selecciona la opción con el texto '{0}' "
+        "del elemento select {1}"
+    )
+    SELECT_BY_TEXT_ERROR = (
+        "Ninguna opción contiene el text '{0}' dentro del elemento {1}."
+    )
+    SELECT_BY_VALUE = (
+        "Se selecciona la opción con el valor '{0}' del elemento select {1}"
+    )
+    SELECT_BY_INDEX = (
+        "Se selecciona la opción que se encuentra en la posición {0} "
+        "del elemento select {1}"
+    )
+    SELECT_BY_INDEX_ERROR = (
+        "El elemento select {1}, no tiene opción en la posición {0}"
+    )
