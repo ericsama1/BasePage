@@ -8,7 +8,7 @@ class CartLocator():
     # Items table
     cart_items = (By.XPATH, "//div[@class='cart_item']")
     item_quantity = (By.XPATH, "//div[@class='cart_quantity']")
-    item_remove = (By.XPATH, "//div[@class='btn_secondary cart_button']")
+    item_remove = (By.XPATH, "//button[@class='btn_secondary cart_button']")
 
     # Buttons
     continue_button = (
