@@ -34,7 +34,7 @@ class SortTest(unittest.TestCase):
         if self.done:
             self.log.info('The test has finished OK')
         else:
-            self.log.error('The test hasn\' finished OK')
+            self.log.error('The test hasn\'t finished OK')
         import time
         time.sleep(2)
         self.driver.close()
