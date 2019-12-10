@@ -1,5 +1,4 @@
 from baseelement import BaseElement
-# from basepage import BasePage
 from example.pages.header import Header
 from example.locators.cart import CartLocator
 
@@ -21,6 +20,15 @@ class Cart(Header):
 
     def remove(self, position):
         self.__item_remove[position].click()
+        self.__cart_items = self.get_elements(
+            self.driver, CartLocator.cart_items, self.log
+        )
+        self.__item_quantity = self.get_elements(
+            self.driver, CartLocator.item_quantity, self.log
+        )
+        self.__item_remove = self.get_elements(
+            self.driver, CartLocator.item_remove, self.log
+        )
 
     def select_continue(self):
         self.__continue.click()
