@@ -32,6 +32,7 @@ class BasePageConstants():
         "El texto esperado '{0}', y el texto del elemento '{1}', "
         "son diferentes"
     )
+    SLEEP_MESSAGE = "Se pausa por {} segundos."
 
 
 class BaseRadioConstants():

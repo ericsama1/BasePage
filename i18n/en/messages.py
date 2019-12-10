@@ -32,6 +32,7 @@ class BasePageConstants():
     COMPARE_TEXT_ERROR = (
         "The expected text '{0}', and the element's text '{1}' are different."
     )
+    SLEEP_MESSAGE = "Sleep for {} sencods"
 
 
 class BaseRadioConstants():

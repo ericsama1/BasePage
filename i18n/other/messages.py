@@ -48,6 +48,8 @@ class BasePageConstants():
         PageEN.CAPTURE_IMAGE_ERROR, dest).text
     COMPARE_TEXT_ERROR = translator.translate(
         PageEN.COMPARE_TEXT_ERROR, dest).text
+    SLEEP_MESSAGE = translator.translate(
+        PageEN.SLEEP_MESSAGE, dest).text
 
 
 class BaseRadioConstants():

@@ -1,3 +1,4 @@
+from time import sleep
 from selenium.webdriver.common.by import By
 from settings import evidence_path
 from i18n import Message
@@ -62,3 +63,12 @@ class BasePage():
             for x in range(len(elem))
         ]
         return elements
+
+    def sleep(self, seconds):
+        """Method to pause the script for x seconds.
+
+        Arguments:
+            seconds {integer} -- Seconds to pause the script
+        """
+        self.log.info(Message.SLEEP_MESSAGE.format(seconds))
+        sleep(seconds)
