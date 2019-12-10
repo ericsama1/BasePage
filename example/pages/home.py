@@ -1,5 +1,3 @@
-# from basepage import BasePage
-# from baseelement import BaseElement
 from baseselect import BaseSelect
 from example.pages.header import Header
 from example.locators.home import HomeLocator
