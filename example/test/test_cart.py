@@ -27,9 +27,22 @@ class SortTest(unittest.TestCase):
     def test_continue(self):
         self.cart.select_continue()
         Home(self.driver, self.log)
+        self.done = True
 
     def test_checkout(self):
         self.cart.select_checkout()
+        self.done = True
+
+    def test_all_items(self):
+        self.cart.select_all_items()
+        Home(self.driver, self.log)
+        self.done = True
+
+    def test_remove(self):
+        self.cart.remove(0)
+        count = self.cart.get_list_quantity()
+        assert count == 0, 'Hay mas elementos'
+        self.done = True
 
     def tearDown(self):
         if self.done:
