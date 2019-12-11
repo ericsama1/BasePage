@@ -35,7 +35,7 @@ class LoginData():
 
     def get_locked_message(self):
         """Method to obtain the locked message
-        
+
         Returns:
             String -- Private variable locked message
         """

@@ -3,7 +3,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as exp_c
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
-from selenium.common.exceptions import NoSuchElementException
 from i18n import Message
 
 
@@ -32,12 +31,13 @@ class BaseElement():
         self.log = log
         self.driver = driver
         self.by = by
-        try:
-            self.element = wait.until(exp_c.visibility_of_element_located(by))
-        except TimeoutException:
+        if timeout == 0:
+            self.element = self.driver.find_element(*(by))
+        else:
             try:
-                self.element = self.driver.find_element(*(by))
-            except NoSuchElementException:
+                self.element = wait.until(
+                    exp_c.visibility_of_element_located(by))
+            except TimeoutException:
                 msg = Message.ELEMENT_NOT_VISIBLE.format(by)
                 self.log.error(msg)
                 fail(msg)
