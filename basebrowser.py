@@ -1,7 +1,7 @@
 from pytest import fail
+from settings import browser
 from selenium import webdriver
 from selenium.webdriver.opera.options import Options as OperaOptions
-from settings import browser
 from i18n import CHROME, FIREFOX, IE, OPERA, EDGE, Message
 
 
@@ -15,7 +15,6 @@ class BaseBrowser():
         Arguments:
             url {String} -- URL to automatize
         """
-        # self.create_log()
         self.log = log
         self.driver = self.open_browser()
         self.set_url(url)
