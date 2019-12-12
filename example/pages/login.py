@@ -46,7 +46,7 @@ class Login(BasePage):
             user {String} -- User
             passw {String} -- User's password
         """
-        msg = "Se ingresa usuario {} y contraseña.".format(user)
+        msg = "Has written the user {} and password.".format(user)
         with self.allure.step(msg):
             self.write_user(user)
             self.write_pass(passw)
@@ -61,5 +61,10 @@ class Login(BasePage):
         Arguments:
             text {String} -- Expected message
         """
-        self.__error = BaseElement(self.driver, LoginLocator.error, self.log)
-        self.compare_text(self.__error, text)
+        msg = "Se intenta visualizar el mensaje de error"
+        with self.allure.step(msg):
+            self.__error = BaseElement(
+                self.driver, LoginLocator.error, self.log
+            )
+            self.compare_text(self.__error, text)
+            self.allure.attach_image(self.driver, "The message is visible")
