@@ -46,8 +46,11 @@ class Login(BasePage):
             user {String} -- User
             passw {String} -- User's password
         """
-        self.write_user(user)
-        self.write_pass(passw)
+        msg = "Se ingresa usuario {} y contraseña.".format(user)
+        with self.allure.step(msg):
+            self.write_user(user)
+            self.write_pass(passw)
+            self.allure.attach_image(self.driver, msg)
         self.click_login()
 
     # Verify
