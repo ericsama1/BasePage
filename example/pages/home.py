@@ -18,6 +18,9 @@ class Home(Header):
             driver, HomeLocator.product_list, log)
         self.__products_add_cart = self.get_elements(
             driver, HomeLocator.products_add_cart, log)
+        msg = "Enter to Home page"
+        with self.allure.step(msg):
+            self.allure.attach_image(self.driver, msg)
 
     def select_sort_by_name_ascendant(self):
         """

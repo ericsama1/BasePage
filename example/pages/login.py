@@ -16,6 +16,9 @@ class Login(BasePage):
         self.__user = BaseElement(driver, LoginLocator.user, log)
         self.__password = BaseElement(driver, LoginLocator.passw, log)
         self.__login = BaseElement(driver, LoginLocator.login, log)
+        msg = "Enter to login Page"
+        with self.allure.step(msg):
+            self.allure.attach_image(self.driver, msg)
 
     def write_user(self, user):
         """Method to write the user in the user input
@@ -23,7 +26,9 @@ class Login(BasePage):
         Arguments:
             user {String} -- User
         """
+        msg = "Has written the user {}".format(user)
         self.__user.send_keys(user)
+        self.allure.attach_image(self.driver, msg)
 
     def write_pass(self, passw):
         """Method to write the password in the password input
@@ -31,7 +36,9 @@ class Login(BasePage):
         Arguments:
             passw {String} -- user's password
         """
+        msg = "Has written the password"
         self.__password.send_keys(passw)
+        self.allure.attach_image(self.driver, msg)
 
     def click_login(self):
         """
@@ -50,7 +57,6 @@ class Login(BasePage):
         with self.allure.step(msg):
             self.write_user(user)
             self.write_pass(passw)
-            self.allure.attach_image(self.driver, msg)
         self.click_login()
 
     # Verify

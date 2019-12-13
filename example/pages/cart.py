@@ -9,6 +9,9 @@ class Cart(Header):
         self.__continue = BaseElement(driver, CartLocator.continue_button, log)
         self.__checkout = BaseElement(driver, CartLocator.checkout_button, log)
         self.__set_element()
+        msg = "Enter to cart page"
+        with self.allure.step(msg):
+            self.allure.attach_image(self.driver, msg)
 
     def __set_element(self):
         self.__cart_items = self.get_elements(
@@ -22,8 +25,11 @@ class Cart(Header):
         )
 
     def remove(self, position):
-        self.__item_remove[position].click()
-        self.__set_element()
+        msg = "Remove an element"
+        with self.allure.step(msg):
+            self.__item_remove[position].click()
+            self.__set_element()
+            self.allure.attach(self.driver, msg)
 
     def select_continue(self):
         self.__continue.click()

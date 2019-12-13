@@ -14,6 +14,9 @@ class Checkout(BasePage):
         self.__cancel_button = BaseElement(driver, CheckoutLocator.cancel, log)
         self.__continue_button = BaseElement(
             driver, CheckoutLocator.continue_button, log)
+        msg = "Enter to checkout page"
+        with self.allure.step(msg):
+            self.allure.attach_image(self.driver, msg)
 
     def write_first_name(self, name):
         self.__first_name.send_keys(name)
