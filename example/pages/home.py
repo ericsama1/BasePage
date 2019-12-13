@@ -4,7 +4,7 @@ from example.locators.home import HomeLocator
 
 
 class Home(Header):
-    def __init__(self, driver, log):
+    def __init__(self, driver, log, allure):
         """Inicialize the Home page, finding all element in the page
 
         Arguments:
@@ -12,7 +12,7 @@ class Home(Header):
             driver {Webdriver} -- Webdriver to use
             log {log} -- Logger
         """
-        super().__init__(driver, log)
+        super().__init__(driver, log, allure)
         self.__product_sort = BaseSelect(driver, HomeLocator.product_sort, log)
         self.__products = self.get_elements(
             driver, HomeLocator.product_list, log)

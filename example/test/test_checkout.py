@@ -8,25 +8,28 @@ from example.pages.checkout import Checkout
 from example.data.login_data import LoginData
 from example.data.checkout_data import CheckoutData
 from helpers.log import DriverLog
+from helpers.alluredriver import allure, Allure
 
 log = DriverLog()
 log = log.create_log()
 
 
+@allure.feature('Login')
 class CartTest(unittest.TestCase):
     def setUp(self):
         self.done = False
+        self.allure = Allure()
         browser = BaseBrowser(url, log)
         self.data = LoginData()
         self.driver, self.log = browser.get_driver()
-        login = Login(self.driver, self.log)
+        login = Login(self.driver, self.log, self.allure)
         login.login(self.data.get_user(), self.data.get_pass())
-        home = Home(self.driver, self.log)
+        home = Home(self.driver, self.log, self.allure)
         home.add_cart(0)
         home.select_cart()
-        cart = Cart(self.driver, self.log)
+        cart = Cart(self.driver, self.log, self.allure)
         cart.select_checkout()
-        self.checkout = Checkout(self.driver, self.log)
+        self.checkout = Checkout(self.driver, self.log, self.allure)
         self.data_check = CheckoutData()
         self.checkout.sleep(1)
 
@@ -57,7 +60,7 @@ class CartTest(unittest.TestCase):
 
     def test_cancel(self):
         self.checkout.select_cancel()
-        Cart(self.driver, self.log)
+        Cart(self.driver, self.log, self.allure)
         self.done = True
 
     def tearDown(self):

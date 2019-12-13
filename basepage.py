@@ -3,13 +3,12 @@ from selenium.webdriver.common.by import By
 from settings import evidence_path
 from i18n import Message
 from baseelement import BaseElement
-from helpers.alluredriver import Allure
 
 
 class BasePage():
     """Base class to initialize a page"""
-    def __init__(self, driver, log):
-        self.allure = Allure()
+    def __init__(self, driver, log, allure):
+        self.allure = allure
         self.driver = driver
         self.log = log
 

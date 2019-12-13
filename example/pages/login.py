@@ -4,7 +4,7 @@ from example.locators.login import LoginLocator
 
 
 class Login(BasePage):
-    def __init__(self, driver, log):
+    def __init__(self, driver, log, allure):
         """Inicialize the login page, finding all element in the page
 
         Arguments:
@@ -12,7 +12,7 @@ class Login(BasePage):
             driver {Webdriver} -- Webdriver to use
             log {log} -- Logger
         """
-        super().__init__(driver, log)
+        super().__init__(driver, log, allure)
         self.__user = BaseElement(driver, LoginLocator.user, log)
         self.__password = BaseElement(driver, LoginLocator.passw, log)
         self.__login = BaseElement(driver, LoginLocator.login, log)

@@ -4,8 +4,8 @@ from example.locators.header import HeaderLocator
 
 
 class Header(BasePage):
-    def __init__(self, driver, log):
-        super().__init__(driver, log)
+    def __init__(self, driver, log, allure):
+        super().__init__(driver, log, allure)
         self.__logo = BaseElement(driver, HeaderLocator.logo, log)
         self.__menu = BaseElement(driver, HeaderLocator.menu, log)
         self.__cart = BaseElement(driver, HeaderLocator.cart, log)

@@ -1,11 +1,11 @@
 import unittest
-import allure
 from settings import url
 from basebrowser import BaseBrowser
 from example.pages.login import Login
 from example.pages.home import Home
 from example.data.login_data import LoginData
 from helpers.log import DriverLog
+from helpers.alluredriver import Allure, allure
 
 log = DriverLog()
 log = log.create_log()
@@ -14,10 +14,11 @@ log = log.create_log()
 @allure.feature('Login')
 class LoginTest(unittest.TestCase):
     def setUp(self):
+        self.allure = Allure()
         browser = BaseBrowser(url, log)
         self.data = LoginData()
         self.driver, self.log = browser.get_driver()
-        self.login = Login(self.driver, self.log)
+        self.login = Login(self.driver, self.log, self.allure)
 
     @allure.title('Locked User')
     def test_locked_user(self):
@@ -28,7 +29,7 @@ class LoginTest(unittest.TestCase):
     @allure.title('Correct Login')
     def test_user(self):
         self.login.login(self.data.get_user(), self.data.get_pass())
-        Home(self.driver, self.log)
+        Home(self.driver, self.log, self.allure)
 
     def tearDown(self):
         self.driver.close()

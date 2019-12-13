@@ -4,8 +4,8 @@ from example.locators.checkout import CheckoutLocator
 
 
 class Checkout(BasePage):
-    def __init__(self, driver, log):
-        super().__init__(driver, log)
+    def __init__(self, driver, log, allure):
+        super().__init__(driver, log, allure)
         self.__first_name = BaseElement(
             driver, CheckoutLocator.first_name, log)
         self.__last_name = BaseElement(driver, CheckoutLocator.last_name, log)

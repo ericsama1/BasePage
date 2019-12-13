@@ -4,8 +4,8 @@ from example.locators.cart import CartLocator
 
 
 class Cart(Header):
-    def __init__(self, driver, log):
-        super().__init__(driver, log)
+    def __init__(self, driver, log, allure):
+        super().__init__(driver, log, allure)
         self.__continue = BaseElement(driver, CartLocator.continue_button, log)
         self.__checkout = BaseElement(driver, CartLocator.checkout_button, log)
         self.__set_element()

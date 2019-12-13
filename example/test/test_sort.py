@@ -5,20 +5,23 @@ from example.pages.login import Login
 from example.pages.home import Home
 from example.data.login_data import LoginData
 from helpers.log import DriverLog
+from helpers.alluredriver import allure, Allure
 
 log = DriverLog()
 log = log.create_log()
 
 
+@allure.feature('Sort Test')
 class SortTest(unittest.TestCase):
     def setUp(self):
         self.done = False
+        self.allure = Allure()
         browser = BaseBrowser(url, log)
         self.data = LoginData()
         self.driver, self.log = browser.get_driver()
-        login = Login(self.driver, self.log)
+        login = Login(self.driver, self.log, self.allure)
         login.login(self.data.get_user(), self.data.get_pass())
-        self.home = Home(self.driver, self.log)
+        self.home = Home(self.driver, self.log, self.allure)
 
     def test_sort_by_name_ascendant(self):
         self.log.info('Name Ascendant')
