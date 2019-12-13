@@ -19,21 +19,37 @@ class Checkout(BasePage):
             self.allure.attach_image(self.driver, msg)
 
     def write_first_name(self, name):
-        self.__first_name.send_keys(name)
+        msg = "Write firstname"
+        with self.allure.step(msg):
+            self.__first_name.send_keys(name)
+            self.allure.attach_image(self.driver, msg)
 
     def write_last_name(self, lastname):
-        self.__last_name.send_keys(lastname)
+        msg = "Write lastname"
+        with self.allure.step(msg):
+            self.__last_name.send_keys(lastname)
+            self.allure.attach_image(self.driver, msg)
 
     def write_postal_code(self, postal):
-        self.__postal_code.send_keys(postal)
+        msg = "Write postal code"
+        with self.allure.step(msg):
+            self.__postal_code.send_keys(postal)
+            self.allure.attach_image(self.driver, msg)
 
     def select_cancel(self):
-        self.__cancel_button.click()
+        msg = "Click on cancel button"
+        with self.allure.step(msg):
+            self.__cancel_button.click()
 
     def select_continue(self):
-        self.__continue_button.click()
+        msg = "Click on continue button"
+        with self.allure.step(msg):
+            self.__continue_button.click()
 
     def check_error(self, text):
-        self.__error_message = BaseElement(
-            self.driver, CheckoutLocator.error_message, self.log)
-        self.compare_text(self.__error_message, text)
+        msg = "Checking error message"
+        with self.allure.step(msg):
+            self.__error_message = BaseElement(
+                self.driver, CheckoutLocator.error_message, self.log)
+            self.compare_text(self.__error_message, text)
+            self.allure.attach_image(self.driver, msg)

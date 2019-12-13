@@ -23,49 +23,65 @@ class Header(BasePage):
         """
         Select the menu button.
         """
-        self.__menu.click()
+        msg = "Click on menu button"
+        with self.allure.step(msg):
+            self.__menu.click()
+            self.allure.attach_image(msg)
 
     def select_cart(self):
         """
         Select the cart button
         """
-        self.__cart.click()
+        msg = "Click on cart button"
+        with self.allure.step(msg):
+            self.__cart.click()
 
     def select_all_items(self):
         """
-        Select the option 'all items' in the menu.
+        Select 'all items' option in the menu.
         """
-        self.select_menu()
-        self.__all_item.wait(5)
-        self.__all_item.click()
+        msg = "Click on 'all items' option"
+        with self.allure.step(msg):
+            self.select_menu()
+            self.__all_item.wait(5)
+            self.__all_item.click()
 
     def select_about(self):
         """
-        Select the option 'select about' in the menu.
+        Select 'select about' option in the menu.
         """
-        self.select_menu()
-        self.__about.wait(5)
-        self.__about.click()
+        msg = "Click on 'select about' option"
+        with self.allure.step(msg):
+            self.select_menu()
+            self.__about.wait(5)
+            self.__about.click()
 
     def select_logout(self):
         """
-        Select the option 'logout' in the menu.
+        Select 'logout' option in the menu.
         """
-        self.select_menu()
-        self.__logout.wait(5)
-        self.__logout.click()
+        msg = "Click on 'logout' option"
+        with self.allure.step(msg):
+            self.select_menu()
+            self.__logout.wait(5)
+            self.__logout.click()
 
     def select_reset(self):
         """
-        Select the option 'reset' in the menu.
+        Select 'reset' option in the menu.
         """
-        self.select_menu()
-        self.__reset.wait(5)
-        self.__reset.click()
+        msg = "Click on 'reset' option"
+        with self.allure.step(msg):
+            self.select_menu()
+            self.__reset.wait(5)
+            self.__reset.click()
 
     def close_menu(self):
         """
         Select the button to close the menu.
         """
-        self.__close_menu.wait(5)
-        self.__close_menu.click()
+        msg = "Close menu"
+        with self.allure.step(msg):
+            self.__close_menu.wait(5)
+            self.__close_menu.click()
+            self.allure.attach_image(self.driver, msg)

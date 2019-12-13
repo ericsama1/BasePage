@@ -32,10 +32,14 @@ class Cart(Header):
             self.allure.attach(self.driver, msg)
 
     def select_continue(self):
-        self.__continue.click()
+        msg = "Click on continue button"
+        with self.allure.step(msg):
+            self.__continue.click()
 
     def select_checkout(self):
-        self.__checkout.click()
+        msg = "Click on checkout button"
+        with self.allure.step(msg):
+            self.__checkout.click()
 
     # GETS
 
