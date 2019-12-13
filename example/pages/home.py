@@ -23,25 +23,37 @@ class Home(Header):
         """
         Select the ascendant name sort option.
         """
-        self.__product_sort.select_by_text('Name (A to Z)')
+        msg = "The new order of the items is by ascendant name"
+        with self.allure.step(msg):
+            self.__product_sort.select_by_text('Name (A to Z)')
+            self.allure.attach_image(self.driver, msg)
 
     def select_sort_by_name_descendant(self):
         """
         Select the descendant name sort option.
         """
-        self.__product_sort.select_by_text('Name (Z to A)')
+        msg = "The new order of the items is by descendant name"
+        with self.allure.step(msg):
+            self.__product_sort.select_by_text('Name (Z to A)')
+            self.allure.attach_image(self.driver, msg)
 
     def select_sort_by_price_ascendant(self):
         """
         Select the ascendant price sort option.
         """
-        self.__product_sort.select_by_text('Price (low to high)')
+        msg = "The new order of the items is by ascendant price"
+        with self.allure.step(msg):
+            self.__product_sort.select_by_text('Price (low to high)')
+            self.allure.attach_image(self.driver, msg)
 
     def select_sort_by_price_descendant(self):
         """
         Select the descendant price sort option.
         """
-        self.__product_sort.select_by_text('Price (high to low)')
+        msg = "The new order of the items is by descendant price"
+        with self.allure.step(msg):
+            self.__product_sort.select_by_text('Price (high to low)')
+            self.allure.attach_image(self.driver, msg)
 
     def add_cart(self, position):
         """Select the button add to cart on the item
@@ -49,8 +61,11 @@ class Home(Header):
         Arguments:
             position {integer} -- Position of the element to add to cart
         """
-        elem = self.__products_add_cart[position]
-        elem.click()
+        msg = "Add the product to cart"
+        with self.allure.step(msg):
+            elem = self.__products_add_cart[position]
+            elem.click()
+            self.allure.attach_image(self.driver, msg)
 
     def all_to_cart(self):
         """
